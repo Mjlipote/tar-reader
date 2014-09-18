@@ -14,9 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class TarReader {
 
+  private static final Logger log = LoggerFactory.getLogger(TarReader.class);
   private final InputStream is;
   private final boolean isArchive;
 
@@ -64,7 +67,7 @@ public final class TarReader {
       throws IOException {
     List<String> ls = new ArrayList<String>();
     if (endIndex < startIndex) {
-      System.out.println("輸入的範圍有誤！");
+      log.error("輸入的範圍有誤！");
     } else {
       BufferedReader br =
           isArchive == true ? getArchiveBufferedReader() : getBufferedReader();
