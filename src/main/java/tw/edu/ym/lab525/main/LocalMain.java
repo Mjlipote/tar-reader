@@ -11,10 +11,10 @@ public class LocalMain {
 
   public static void main(String[] args) throws IOException {
     InputStream is =
-        new FileInputStream(new File("src/test/resources/10000.txt.tar"));
+        new FileInputStream(new File("src/main/resources/10000.txt.tar"));
 
     TarReader tr = new TarReader(is, true);
-    for (String t : tr.readLinesBetween(4, 2)) {
+    for (String t : tr.readLinesBetween(1, 2)) {
       System.out.println(t);
     }
   }
