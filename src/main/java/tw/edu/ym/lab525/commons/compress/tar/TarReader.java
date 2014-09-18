@@ -1,7 +1,7 @@
 package tw.edu.ym.lab525.commons.compress.tar;
 
 /**
- * @author Ming-Jheng LI
+ * @author Ming-Jheng Li
  */
 import java.io.BufferedReader;
 import java.io.File;

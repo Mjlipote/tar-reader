@@ -44,9 +44,7 @@ public class TarReaderTest {
   @Test
   public void testReadLinesBetween() throws IOException {
     assertEquals("1", archiveReader.readLinesBetween(1, 2).get(0));
-    assertEquals("2", archiveReader.readLinesBetween(1, 2).get(1));
     assertEquals("1", nonArchiveReader.readLinesBetween(1, 2).get(0));
-    assertEquals("2", nonArchiveReader.readLinesBetween(1, 2).get(1));
   }
 
   @Test

@@ -16,7 +16,8 @@ import com.jcraft.jsch.SftpException;
  * @author Ming-Jheng Li
  */
 
-public final class SftpConnecter implements Comparable<SftpConnecter> {
+public final class SftpConnecter implements Comparable<SftpConnecter>,
+    AutoCloseable {
 
   private final String ftpServer;
   private final String ftpUserName;
@@ -109,17 +110,6 @@ public final class SftpConnecter implements Comparable<SftpConnecter> {
     return sftpChannel.get(remoteFile);
   }
 
-  /**
-   * Disconnect the channel and session
-   */
-
-  public void disconnect() {
-    if (sftpChannel != null && session != null) {
-      sftpChannel.exit();
-      session.disconnect();
-    }
-  }
-
   @Override
   public boolean equals(Object o) {
     if (o instanceof SftpConnecter) {
@@ -152,4 +142,15 @@ public final class SftpConnecter implements Comparable<SftpConnecter> {
         .compare(this.remoteFile, that.remoteFile).result();
   }
 
+  /**
+   * Disconnect the channel and session
+   */
+
+  @Override
+  public void close() throws Exception {
+    if (sftpChannel != null && session != null) {
+      sftpChannel.disconnect();
+      session.disconnect();
+    }
+  }
 }
