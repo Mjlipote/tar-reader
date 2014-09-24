@@ -10,10 +10,10 @@ import com.github.Mjlipote.sftp.connecter.SftpConnecter;
  */
 public class RemoteMain {
 
-  public static final String REMOTE_SERVER = "";
-  public static final String LOGIN_USER_NAME = "";
-  public static final String LOGIN_PASSWORD = "";
-  public static final String REMOTE_FILE = "";
+  public static final String REMOTE_SERVER = "remote_server_name";
+  public static final String LOGIN_USER_NAME = "login_user_name";
+  public static final String LOGIN_PASSWORD = "login_password";
+  public static final String REMOTE_FILE = "romote_file_path";
 
   public static int begin;
   public static int end;

@@ -56,21 +56,21 @@ public final class SftpConnecter implements Comparable<SftpConnecter>,
     private ChannelSftp sftpChannel = null;
 
     private Builder(String remoteServer, String userName) throws JSchException {
-      this.ftpServer = checkNotNull(remoteServer, "Server 不可為空值");
-      this.ftpUserName = checkNotNull(userName, "UserName 不可為空值");
+      this.ftpServer = checkNotNull(remoteServer, "Server can't be null");
+      this.ftpUserName = checkNotNull(userName, "UserName can't be null");
       JSch jsch = new JSch();
       session = jsch.getSession(userName, remoteServer, 22);
       session.setConfig("StrictHostKeyChecking", "no");
     }
 
     public Builder setPassword(String password) {
-      this.ftpPassword = checkNotNull(password, "Password 不可為空值");
+      this.ftpPassword = checkNotNull(password, "Password can't be null");
       session.setPassword(password);
       return this;
     }
 
     public Builder setRemoteFile(String remoteFile) {
-      this.remoteFile = checkNotNull(remoteFile, "RemoteFile 不可為空值");
+      this.remoteFile = checkNotNull(remoteFile, "RemoteFile can't be null");
       return this;
     }
 

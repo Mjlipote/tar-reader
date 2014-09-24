@@ -92,7 +92,7 @@ public final class TarReader {
       throws IOException {
     List<String> ls = new ArrayList<String>();
     if (endIndex < beginIndex) {
-      log.error("輸入的範圍有誤！");
+      log.error("The range is fail, please check it again");
     } else {
       BufferedReader br =
           isArchive == true ? getArchiveBufferedReader() : getBufferedReader();
