@@ -1,4 +1,4 @@
-package tw.edu.ym.lab525.sftp.connecter;
+package com.github.Mjlipote.sftp.connecter;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

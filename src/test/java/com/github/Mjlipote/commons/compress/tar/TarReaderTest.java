@@ -1,4 +1,4 @@
-package tw.edu.ym.lab525.commons.compress.tar;
+package com.github.Mjlipote.commons.compress.tar;
 
 /**
  * @author Ming-Jheng Li
@@ -13,6 +13,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.github.Mjlipote.commons.compress.tar.TarReader;
 
 public class TarReaderTest {
 

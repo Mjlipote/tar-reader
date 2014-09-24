@@ -1,4 +1,4 @@
-package tw.edu.ym.lab525.sftp.connecter;
+package com.github.Mjlipote.sftp.connecter;
 
 /**
  * @author Minh-Jheng Li
@@ -12,7 +12,8 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import tw.edu.ym.lab525.commons.compress.tar.TarReader;
+import com.github.Mjlipote.commons.compress.tar.TarReader;
+import com.github.Mjlipote.sftp.connecter.SftpConnecter;
 
 public class SftpConnecterTest {
 

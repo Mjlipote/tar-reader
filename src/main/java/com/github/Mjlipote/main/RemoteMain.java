@@ -1,7 +1,7 @@
-package tw.edu.ym.lab525.main;
+package com.github.Mjlipote.main;
 
-import tw.edu.ym.lab525.commons.compress.tar.TarReader;
-import tw.edu.ym.lab525.sftp.connecter.SftpConnecter;
+import com.github.Mjlipote.commons.compress.tar.TarReader;
+import com.github.Mjlipote.sftp.connecter.SftpConnecter;
 
 /**
  * 
