@@ -15,14 +15,14 @@ import com.github.Mjlipote.commons.compress.tar.TarReader;
 public class LocalMain {
 
   public static final String LOCAL_FILE = "";
-  public static int start;
+  public static int begin;
   public static int end;
 
   public static void main(String[] args) throws IOException {
     InputStream is = new FileInputStream(new File(LOCAL_FILE));
 
     TarReader tr = new TarReader(is, true);
-    for (String t : tr.readLinesBetween(start, end)) {
+    for (String t : tr.readLinesBetween(begin, end)) {
       System.out.println(t);
     }
   }

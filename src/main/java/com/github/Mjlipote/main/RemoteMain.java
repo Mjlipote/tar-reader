@@ -15,7 +15,7 @@ public class RemoteMain {
   public static final String LOGIN_PASSWORD = "";
   public static final String REMOTE_FILE = "";
 
-  public static int start;
+  public static int begin;
   public static int end;
 
   public static void main(String[] args) throws Exception {
@@ -26,7 +26,7 @@ public class RemoteMain {
 
     TarReader tr = new TarReader(sftpConnecter.getInputStream(), false);
 
-    for (String t : tr.readLinesBetween(start, end)) {
+    for (String t : tr.readLinesBetween(begin, end)) {
       System.out.println(t);
     }
 
