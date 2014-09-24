@@ -22,6 +22,7 @@ public final class TarReader {
   private static final Logger log = LoggerFactory.getLogger(TarReader.class);
   private final InputStream is;
   private final boolean isArchive;
+  private String encoding = "UTF-8";
 
   /**
    * A Constructor of TarReader by using file name
@@ -55,7 +56,7 @@ public final class TarReader {
   private BufferedReader getArchiveBufferedReader() throws IOException {
     TarArchiveInputStream tarFile = new TarArchiveInputStream(is);
     tarFile.getNextTarEntry();
-    return new BufferedReader(new InputStreamReader(tarFile, "UTF-8"));
+    return new BufferedReader(new InputStreamReader(tarFile, encoding));
   }
 
   /**
@@ -65,21 +66,32 @@ public final class TarReader {
    * @throws IOException
    */
   private BufferedReader getBufferedReader() throws IOException {
-    return new BufferedReader(new InputStreamReader(is, "UTF-8"));
+    return new BufferedReader(new InputStreamReader(is, encoding));
   }
 
   /**
-   * Read lines between startIndex and ecnIndex
+   * Set encoding to TarReader
    * 
-   * @param startIndex
+   * @param encoding
+   * @return TarReader
+   */
+  public TarReader setEncoding(String encoding) {
+    this.encoding = encoding;
+    return this;
+  }
+
+  /**
+   * Read lines between beginIndex and ecnIndex
+   * 
+   * @param beginIndex
    * @param endIndex
    * @return lines
    * @throws IOException
    */
-  public List<String> readLinesBetween(int startIndex, int endIndex)
+  public List<String> readLinesBetween(int beginIndex, int endIndex)
       throws IOException {
     List<String> ls = new ArrayList<String>();
-    if (endIndex < startIndex) {
+    if (endIndex < beginIndex) {
       log.error("輸入的範圍有誤！");
     } else {
       BufferedReader br =
@@ -89,7 +101,7 @@ public final class TarReader {
       String line = null;
 
       while ((line = br.readLine()) != null) {
-        if (isBetween(i, startIndex, endIndex)) {
+        if (isBetween(i, beginIndex, endIndex)) {
 
           ls.add(line);
         }

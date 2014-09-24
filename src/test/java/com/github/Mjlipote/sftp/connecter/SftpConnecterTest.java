@@ -13,15 +13,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.github.Mjlipote.commons.compress.tar.TarReader;
-import com.github.Mjlipote.sftp.connecter.SftpConnecter;
 
 public class SftpConnecterTest {
 
-  public static final String REMOTE_SERVER = "";
-  public static final String LOGIN_USER_NAME = "";
-  public static final String LOGIN_PASSWORD = "";
-  public static final String REMOTE_FILE = "";
-  public static final String TEST_LINE = "";
+  public static final String REMOTE_SERVER = "remote_server_name";
+  public static final String LOGIN_USER_NAME = "login_user_name";
+  public static final String LOGIN_PASSWORD = "login_password";
+  public static final String REMOTE_FILE = "remote_file_path";
+  public static final String TEST_FIRST_LINE = "test_first_line";
+  public static String encoding = "UTF-8";
 
   SftpConnecter sftpConnecter;
   TarReader tarReader;
@@ -42,7 +42,7 @@ public class SftpConnecterTest {
 
   @Test
   public void testReadLineAt() throws IOException {
-    assertEquals(TEST_LINE, tarReader.readLineAt(1));
+    assertEquals(TEST_FIRST_LINE, tarReader.setEncoding(encoding).readLineAt(1));
     assertNull(tarReader.readLineAt(99));
   }
 }
