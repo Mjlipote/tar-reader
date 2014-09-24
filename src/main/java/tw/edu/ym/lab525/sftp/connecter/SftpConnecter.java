@@ -75,7 +75,7 @@ public final class SftpConnecter implements Comparable<SftpConnecter>,
     }
 
     /**
-     * Connect sftp channel and session
+     * Connects sftp channel and session
      * 
      * @throws JSchException
      * @throws SftpException
@@ -87,7 +87,7 @@ public final class SftpConnecter implements Comparable<SftpConnecter>,
     }
 
     /**
-     * Build the builder and connect to the remote server
+     * Builds the builder and connect to the remote server
      * 
      * @return SftpHelper
      * @throws JSchException

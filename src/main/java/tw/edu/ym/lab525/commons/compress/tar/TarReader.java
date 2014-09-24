@@ -23,18 +23,31 @@ public final class TarReader {
   private final InputStream is;
   private final boolean isArchive;
 
+  /**
+   * A Constructor of TarReader by using file name
+   * 
+   * @param fileName
+   * @param isArc
+   * @throws FileNotFoundException
+   */
   public TarReader(String fileName, boolean isArc) throws FileNotFoundException {
     this.is = new FileInputStream(new File(fileName));
     this.isArchive = isArc;
   }
 
+  /**
+   * A Constructor of TarReader by using InputStream
+   * 
+   * @param inputstream
+   * @param isArc
+   */
   public TarReader(InputStream inputstream, boolean isArc) {
     is = inputstream;
     isArchive = isArc;
   }
 
   /**
-   * Get bufferedbeader if the file is archive
+   * Get bufferedbeader when the file is archive
    * 
    * @return BufferedReader
    * @throws IOException
@@ -46,7 +59,7 @@ public final class TarReader {
   }
 
   /**
-   * Get bufferedbeader if the file is not archive
+   * Get bufferedbeader when the file is not archive
    * 
    * @return BufferedReader
    * @throws IOException
@@ -93,7 +106,7 @@ public final class TarReader {
   }
 
   /**
-   * Read the n-th line
+   * Read at n-th line
    * 
    * @param num
    * @return line
@@ -107,7 +120,7 @@ public final class TarReader {
   }
 
   /**
-   * Check a number whether is between start and end
+   * Checks a number whether is between start and end
    * 
    * @param num
    * @param start

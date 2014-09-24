@@ -16,6 +16,12 @@ import tw.edu.ym.lab525.commons.compress.tar.TarReader;
 
 public class SftpConnecterTest {
 
+  public static final String REMOTE_SERVER = "";
+  public static final String LOGIN_USER_NAME = "";
+  public static final String LOGIN_PASSWORD = "";
+  public static final String REMOTE_FILE = "";
+  public static final String TEST_LINE = "";
+
   SftpConnecter sftpConnecter;
   TarReader tarReader;
 
@@ -23,8 +29,8 @@ public class SftpConnecterTest {
   public void setUp() throws Exception {
 
     sftpConnecter =
-        SftpConnecter.setRemoteServer("192.168.1.122", "mjli").setPassword("")
-            .setRemoteFile("toCsvTar.tar.gz").connect();
+        SftpConnecter.setRemoteServer(REMOTE_SERVER, LOGIN_USER_NAME)
+            .setPassword(LOGIN_PASSWORD).setRemoteFile(REMOTE_FILE).connect();
     tarReader = new TarReader(sftpConnecter.getInputStream(), true);
   }
 
@@ -35,9 +41,7 @@ public class SftpConnecterTest {
 
   @Test
   public void testReadLineAt() throws IOException {
-    assertEquals(
-        "Local_id1,A123456,0910-123-456,A286640890,TW,F,黃,小宜,10,19,1979,李大華,北榮,,NO",
-        tarReader.readLineAt(1));
+    assertEquals(TEST_LINE, tarReader.readLineAt(1));
     assertNull(tarReader.readLineAt(99));
   }
 }
